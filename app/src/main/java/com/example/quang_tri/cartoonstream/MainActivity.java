@@ -1,24 +1,47 @@
 package com.example.quang_tri.cartoonstream;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.drm.DrmStore;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import java.util.List;
+
+import static java.security.AccessController.getContext;
 
 
 public class MainActivity extends AppCompatActivity {
     private VideoView videoView;
     private int position = 0;
     private MediaController mediaController;
+    private Button debugButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         videoView = (VideoView) findViewById(R.id.videoView);
+        debugButton = (Button) findViewById(R.id.debug);
+        debugButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setType("video/*");
+                        startActivity(Intent.createChooser(intent,null));
+                    }
+                }
+        );
 
         // Set the media controller buttons
         if (mediaController == null) {

@@ -12,11 +12,25 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="400dp">
 
         <VideoView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/videoView" />
     </FrameLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="400dp">
+
+        <Button
+            android:text="debug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/debug"
+            android:layout_weight="1" />
+    </LinearLayout>
 </RelativeLayout>
