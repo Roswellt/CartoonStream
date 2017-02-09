@@ -37,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setType("video/*");
+                        //intent.setType("video/*");
+
+                        //Need setDataAndType to be able to choose localcast as application
+                        intent.setDataAndType(Uri.parse("http://media.w3.org/2010/05/sintel/trailer.mp4"), "video/*");
                         startActivity(Intent.createChooser(intent,null));
                     }
                 }
