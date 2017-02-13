@@ -36,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        Intent intent = new Intent("com.example.quang_tri.cartoonstream.MyWebView");
                         //intent.setType("video/*");
 
                         //Need setDataAndType to be able to choose localcast as application
-                        intent.setDataAndType(Uri.parse("http://media.w3.org/2010/05/sintel/trailer.mp4"), "video/*");
-                        startActivity(Intent.createChooser(intent,null));
+                        //intent.setDataAndType(Uri.parse("https://2.bp.blogspot.com/SDIvkU-vXTalmyFsWbfxNCoP9LmetMtHyQV2MY-XVMfIld95JNRfsAIi0LM82nJHT8Q8IbdTZ6d1VoximXhhO2MoPSr3Di8=m18"), "video/*");
+                        //intent.setDataAndType(Uri.parse("http://playbb.me/embed.php?w=745&h=450&vid=at/c/chowder_2_-_17.mp4"), "video/mp4");
+                        startActivity(intent);
                     }
                 }
         );
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
                 videoView.seekTo(position);
                 if (position == 0) {
-                    videoView.start();
+                    //videoView.start();
                 }
 
                 // When video Screen change size.
